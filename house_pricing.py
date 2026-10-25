@@ -23,7 +23,7 @@ y = df['MedHouseVal']
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 # Train once
-theta = np.linalg.inv(X_train.T @ X_train) @ X_train.T @ y_train
+theta = np.linalg.solve(X_train.T @ X_train, X_train.T @ y_train)
 
 # Predict using the already-computed theta
 def predict(X_new, theta):

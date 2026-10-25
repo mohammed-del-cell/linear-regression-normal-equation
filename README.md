@@ -6,7 +6,7 @@ Linear regression implemented from scratch with NumPy, using the normal equation
 
 - Loads the California Housing data from scikit-learn (8 features, target: median house value in units of $100,000).
 - Adds a bias column and splits the data 80% train / 20% test.
-- Solves for the weights directly with the normal equation: theta = (XᵀX)⁻¹ Xᵀy.
+-  Solves for the weights with the normal equation, (XᵀX) theta = Xᵀy, using `np.linalg.solve` instead of an explicit matrix inverse (more numerically stable).
 - Predicts on the test set and computes RMSE and R² by hand (no sklearn metrics).
 
 ## Results (test set)
@@ -20,7 +20,6 @@ Linear regression implemented from scratch with NumPy, using the normal equation
 
 - A linear model explains only about 59% of the variance in house prices. The relationship with features such as latitude and longitude is not linear.
 - The features are not scaled. This does not affect the normal equation, but it makes the weights hard to compare with each other.
-- The code uses an explicit matrix inverse (`np.linalg.inv`). `np.linalg.solve` or `lstsq` is more numerically stable.
 
 ## How to run
 
